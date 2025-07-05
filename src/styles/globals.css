@@ -3,12 +3,13 @@
   --foreground: #171717;
 }
 
+/* Dark mode disabled by commenting out dark theme:
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 html,
 body {
@@ -35,8 +36,253 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+/* -------------------------navbar */
+
+.nav {
+  display: flex;      
+  gap: 1rem;
+  padding: 1rem;
+  align-items: center;  
+
+}
+
+.nav img{
+   width: 40px;
+  height: 40px;
+  border-radius: 52%;
+}
+.menu {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;            
+  padding: 1rem;
+  max-height: 100px;
+   border-bottom: 2px solid #ccc
+}
+
+/* index------------------------ */
+.maincontainerHomePage {
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.itemsHomePage {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.itemBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.5rem;
+}
+
+.imgBlock img {
+  width: 300px;
+  height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.itemBlock button {
+  padding: 0.5rem 1rem;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.itemBlock button:hover {
+  background-color: #0059c1;
+}
+/* --------------------- */
+
+.pomodorocontainer {
+  
+  margin: 0 auto;
+  padding: 2rem;
+  max-width: 1000px;
+}
+
+.clock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 2rem 0;
+}
+
+.clock div {
+  text-align: center;
+  padding: 1rem 1.5rem;
+  background-color: #e2e2e2;
+  border-radius: 8px;
+  width: 500px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+button {
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  background-color: #a7bcd3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  width: 200px;
+  margin-top: 20px;
+  
+}
+
+button:hover {
+  background-color: #5796d5;
+}
+
+button:disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+}
+button:active{
+  background-color: #0059c1;
+}
+/* ---------------------------------------todo */
+.todomaincontainer{
+  max-width: 1000px;
+  margin:0 auto;
+  padding: 2rem;
+}
+.addtask input {
+  margin-top: 30px;
+  width: 500px;         
+  height: 40px;       
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  background-color: #f3e9e9;
+  border-radius: 8px;
+}
+.addtask{
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+}
+
+.tasklist{
+margin: auto;
+  max-width: 1000px;
+  padding: 2rem;
+}
+.tasklist li{
+ align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.taskitem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #aaa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  user-select: none;
+}
+
+.checked {
+  background-color: #4caf50;
+  color: white;
+  border-color: #4caf50;
+}
+
+.completed-task {
+  text-decoration: line-through;
+  color: #888;
+}
+/* ------------------------notes */
+.notesmaincontainer{
+  margin: auto;
+  max-width: 1000px;
+  padding: 2rem;
+}
+.c1{
+justify-content: space-between;
+align-items: center;
+display: flex;
+}
+.notesinput textarea,.noteslist{
+  width: 500px;
+  height: 150px;
+  border-radius: 2%;
+  border: none;
+  list-style: none;
+  padding: 2rem;
+
+}
+.button-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Adds spacing between buttons */
+}
+.color-picker{
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 20px;
+  height: 20px;
+  
+  
+}
+.deletenotebutton{
+  width: 60px;
+  padding: 0rem;
+  height: 20px;
+  position: absolute;
+  bottom: 10px;
+  right: 440px;
+}
+
+
+/* ------------------TaskMaster */
+.taskmaster{
+    font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-size: 50px;
+  padding-left: 20px;
+  font-style: normal;
 }
