@@ -3,8 +3,7 @@
   --foreground: #171717;
 }
 
-/* Dark mode disabled by commenting out dark theme:
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
@@ -37,13 +36,22 @@ a {
 }
 
 /* -------------------------navbar */
-
 .nav {
   display: flex;
   gap: 25px;
   padding: 1rem;
   align-items: center;
+  flex-wrap: wrap;
+}
 
+.nav a {
+  transition: transform 0.3s ease;
+}
+
+.nav a:hover,
+.nav a:active {
+  transform: scale(1.1);
+  z-index: 10;
 }
 
 .nav img {
@@ -58,7 +66,9 @@ a {
   align-items: center;
   height: 60px;
   border-bottom: 2px solid #ccc;
+  flex-wrap: wrap;
 }
+
 
 /* index------------------------ */
 .maincontainerHomePage {
@@ -83,6 +93,7 @@ a {
   border-radius: 12px;
   background-color: #f9f9f9;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  flex-wrap: wrap;
 }
 
 .textContent {
@@ -114,9 +125,7 @@ a {
 }
 
 /* --------------------- */
-
 .pomodorocontainer {
-
   margin: 0 auto;
   padding: 2rem;
   max-width: 1000px;
@@ -130,6 +139,7 @@ a {
   font-size: 2rem;
   font-weight: bold;
   margin: 2rem 0;
+  flex-wrap: wrap;
 }
 
 .clock div {
@@ -138,6 +148,7 @@ a {
   background-color: #e2e2e2;
   border-radius: 8px;
   width: 500px;
+  max-width: 100%;
 }
 
 .button-group-wrapper {
@@ -151,12 +162,12 @@ a {
   display: flex;
   gap: 1rem;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .reset-button {
   margin-top: 1rem;
 }
-
 
 button {
   padding: 0.7rem 1.2rem;
@@ -168,7 +179,6 @@ button {
   cursor: pointer;
   transition: 0.3s ease;
   width: 200px;
-
 }
 
 button:hover {
@@ -193,7 +203,7 @@ button:active {
 
 .addtask input {
   margin-top: 30px;
-  width: 500px;
+  width: 100%;
   height: 40px;
   padding: 0.5rem 1rem;
   font-size: 1rem;
@@ -208,6 +218,8 @@ button:active {
   display: flex;
   justify-content: space-between;
   max-width: 1000px;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .tasklist {
@@ -220,6 +232,8 @@ button:active {
   align-items: center;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .taskitem {
@@ -227,13 +241,14 @@ button:active {
   align-items: center;
   gap: 1rem;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 
 .todotable {
   margin-top: 20px;
   width: 100%;
   table-layout: fixed;
-  padding: 20px
+  padding: 20px;
 }
 
 .todotable td {
@@ -241,7 +256,6 @@ button:active {
   text-align: left;
   vertical-align: middle;
   width: 100px;
-
 }
 
 .addtask button {
@@ -282,11 +296,13 @@ button:active {
   justify-content: space-between;
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .notesinput textarea,
 .noteslist {
-  width: 400px;
+  width: 100%;
   border-radius: 2%;
   border: none;
   list-style: none;
@@ -296,17 +312,17 @@ button:active {
   resize: none;
   line-height: 1.5;
   font-size: 1rem;
-  list-style: none;
-
 }
 
-.notesarea ul,li{
-list-style: none;
-margin: 20px 20px;
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+.notesarea ul,
+.notesarea li {
+  list-style: none;
+  margin: 20px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
 }
+
 .button-column {
   margin-top: 40px;
   display: flex;
@@ -321,8 +337,6 @@ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   left: 5px;
   width: 20px;
   height: 20px;
-
-
 }
 
 .deletenotebutton {
@@ -334,7 +348,6 @@ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   right: 30px;
 }
 
-
 /* ------------------TaskMaster */
 .taskmaster {
   font-family: "Caveat", cursive;
@@ -343,4 +356,57 @@ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   font-size: 50px;
   padding-left: 20px;
   font-style: normal;
+}
+
+/* ------------------Responsive Media Queries */
+@media (max-width: 768px) {
+  .clock {
+    gap: 2rem;
+    flex-direction: column;
+  }
+
+  .itemBlock {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .addtask {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tasklist li {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .notesarea ul,
+  .notesarea li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .taskmaster {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .clock div {
+    padding: 0.8rem;
+    font-size: 1.5rem;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .notesinput textarea,
+  .noteslist {
+    padding: 1rem;
+  }
 }
