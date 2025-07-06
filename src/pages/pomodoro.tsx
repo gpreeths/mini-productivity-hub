@@ -7,8 +7,16 @@ export default function Pomodoro() {
   const [isRunning, setIsRunning] = useState(false);
 
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const alarmRef = useRef<HTMLAudioElement | null>(null);
 
-  // Countdown logic
+
+  const playAlarm = () => {
+    if (alarmRef.current) {
+      alarmRef.current.play();
+    }
+  };
+
+
   useEffect(() => {
     if (isRunning) {
       timerRef.current = setInterval(() => {
@@ -17,6 +25,7 @@ export default function Pomodoro() {
             if (minutes === 0) {
               clearInterval(timerRef.current!);
               setIsRunning(false);
+              playAlarm();
               return 0;
             } else {
               setMinutes(min => min - 1);
@@ -48,21 +57,25 @@ export default function Pomodoro() {
       <div className='pomodorocontainer'>
         <h1>Pomodoro Timer</h1>
 
-       <div className="clock">
-  <div>{minutes.toString().padStart(2, '0')}</div>
-  <div>:</div>
-  <div>{seconds.toString().padStart(2, '0')}</div>
-</div>
-
-
-        <h4 style={{textAlign:'center'}}>Work Mode</h4>
-
-        <div className='button-group'>
-          <button onClick={handleStart} disabled={isRunning}>Start</button>
-          <button onClick={handlePause} disabled={!isRunning}>Pause</button> 
-         
+        <div className="clock">
+          <div>{minutes.toString().padStart(2, '0')}</div>
+          <div>:</div>
+          <div>{seconds.toString().padStart(2, '0')}</div>
         </div>
-         <button onClick={handleReset} style={{margin:'auto'}} >Reset</button>
+
+
+        <h4 style={{ textAlign: 'center' }}>Work Mode</h4>
+
+        <div className="button-group-wrapper">
+          <div className="button-group">
+            <button onClick={handleStart} disabled={isRunning}>Start</button>
+            <button onClick={handlePause} disabled={!isRunning}>Pause</button>
+          </div>
+
+          <button className="reset-button" onClick={handleReset}>Reset</button>
+        </div>
+
+        <audio ref={alarmRef} src="/alarm.mp3" preload="auto" />
       </div>
     </>
   );

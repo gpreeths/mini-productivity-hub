@@ -81,17 +81,24 @@ function Notes() {
           </div>
         </div>
 
-        <div ref={notesRef}> {/* 👈 this is the exportable container */}
+        <div ref={notesRef} className='notesarea'> {/* 👈 this is the exportable container */}
           <ul>
             {notes.map((note) => (
               <li key={note.id} style={{ position: 'relative' }}>
                 <textarea
-                  className='noteslist'
-                  value={note.content}
-                  onChange={(e) => handleNoteChange(note.id, e.target.value)}
-                  style={{ backgroundColor: note.color }}
-                  placeholder='Save your notes here...'
-                />
+  ref={ref => {
+    if (ref) {
+      ref.style.height = 'auto'; // Reset height
+      ref.style.height = `${ref.scrollHeight}px`; // Set to content height
+    }
+  }}
+  value={note.content}
+  onChange={(e) => handleNoteChange(note.id, e.target.value)}
+  className='noteslist'
+  placeholder="Type your notes here..."
+  style={{ backgroundColor: note.color }}
+/>
+
                 <input
                   type='color'
                   value={note.color || '#fff8dc'}

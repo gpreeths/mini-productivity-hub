@@ -7,7 +7,7 @@ function HomePage() {
     <>
     <HomeNavbar/>
     <div className="maincontainerHomePage">
-      <h1>Welcome to Mini Productivity Hub</h1>
+      <h1>Welcome to Mini Productivity Hub</h1><br />
       <p>
         Your all-in-one solution for streamlined productivity — manage tasks, focus with the Pomodoro technique, and jot down ideas effortlessly.
       </p>

@@ -13,7 +13,7 @@ const HomeNavbar = () => {
                     <Link href="/todo" >📝 To-Do-List</Link>
                     <Link href="/pomodoro">⏱ Pomodoro Timer</Link>
                     <Link href="/notes">🗒️ Notes</Link>
-                    <Link href='/notes'><img src="/profilepic.jpeg" alt="" /></Link>
+                    <Link href='/'><img src="/profilepic.jpeg" alt="" /></Link>
                 </nav>
             </div>
         </>
@@ -26,11 +26,11 @@ const PomodoroNavbar=()=>{
             <div className='menu'>
                 <TaskMaster/>
                 <nav className='nav'>
-                    <Link href="/todo" >Home</Link>
+                    <Link href="/" >🏠 Home</Link>
                     <Link href="/todo" >📝 To-Do-List</Link>
                     
                     <Link href="/notes">🗒️ Notes</Link>
-                    <Link href='/notes'><img src="/profilepic.jpeg" alt="" /></Link>
+                    <Link href='/'><img src="/profilepic.jpeg" alt="" /></Link>
                 </nav>
             </div>
         </>
@@ -43,10 +43,10 @@ const TodoNavbar=()=>{
         <div className='menu'>
                <TaskMaster/>
                 <nav className='nav'>
-                    <Link href="/homepage" >Home</Link>
+                    <Link href="/" >🏠 Home</Link>
                     <Link href="/pomodoro">⏱ Pomodoro Timer</Link>
                     <Link href="/notes">🗒️ Notes</Link>
-                    <Link href='/notes'><img src="/profilepic.jpeg" alt="" /></Link>
+                    <Link href='/'><img src="/profilepic.jpeg" alt="" /></Link>
                 </nav>
             </div>
         </>
@@ -61,10 +61,10 @@ const NoteNavbar = () => {
             
                 <nav className='nav'>
                     
-                    <Link href="/home" >Home</Link>
+                    <Link href="/" >🏠 Home</Link>
                     <Link href="/pomodoro">⏱ Pomodoro Timer</Link>
                     <Link href="/notes">🗒️ Notes</Link>
-                    <Link href='/notes'><img src="/profilepic.jpeg" alt="" /></Link>
+                    <Link href='/'><img src="/profilepic.jpeg" alt="" /></Link>
                 </nav>
             </div>
         </>

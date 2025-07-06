@@ -39,30 +39,30 @@ a {
 /* -------------------------navbar */
 
 .nav {
-  display: flex;      
-  gap: 1rem;
+  display: flex;
+  gap: 25px;
   padding: 1rem;
-  align-items: center;  
+  align-items: center;
 
 }
 
-.nav img{
-   width: 40px;
+.nav img {
+  width: 40px;
   height: 40px;
   border-radius: 52%;
 }
+
 .menu {
   display: flex;
-  justify-content: space-between; 
-  align-items: center;            
-  padding: 1rem;
-  max-height: 100px;
-   border-bottom: 2px solid #ccc
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  border-bottom: 2px solid #ccc;
 }
 
 /* index------------------------ */
 .maincontainerHomePage {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: auto;
   padding: 2rem;
 }
@@ -112,10 +112,11 @@ a {
 .itemBlock button:hover {
   background-color: #0059c1;
 }
+
 /* --------------------- */
 
 .pomodorocontainer {
-  
+
   margin: 0 auto;
   padding: 2rem;
   max-width: 1000px;
@@ -139,24 +140,35 @@ a {
   width: 500px;
 }
 
+.button-group-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
 .button-group {
   display: flex;
-  justify-content: center;
   gap: 1rem;
+  justify-content: center;
 }
+
+.reset-button {
+  margin-top: 1rem;
+}
+
 
 button {
   padding: 0.7rem 1.2rem;
   font-size: 1rem;
-  background-color: #a7bcd3;
+  background-color: #409af9;
   color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   transition: 0.3s ease;
   width: 200px;
-  margin-top: 20px;
-  
+
 }
 
 button:hover {
@@ -167,19 +179,22 @@ button:disabled {
   background-color: #a0a0a0;
   cursor: not-allowed;
 }
-button:active{
+
+button:active {
   background-color: #0059c1;
 }
+
 /* ---------------------------------------todo */
-.todomaincontainer{
-  max-width: 1000px;
-  margin:0 auto;
+.todomaincontainer {
+  max-width: 1100px;
+  margin: 0 auto;
   padding: 2rem;
 }
+
 .addtask input {
   margin-top: 30px;
-  width: 500px;         
-  height: 40px;       
+  width: 500px;
+  height: 40px;
   padding: 0.5rem 1rem;
   font-size: 1rem;
   border: none;
@@ -187,28 +202,50 @@ button:active{
   background-color: #f3e9e9;
   border-radius: 8px;
 }
-.addtask{
+
+.addtask {
   align-items: center;
   display: flex;
   justify-content: space-between;
   max-width: 1000px;
 }
 
-.tasklist{
-margin: auto;
+.tasklist {
+  margin: auto;
   max-width: 1000px;
   padding: 2rem;
 }
-.tasklist li{
- align-items: center;
+
+.tasklist li {
+  align-items: center;
   display: flex;
   justify-content: space-between;
 }
+
 .taskitem {
   display: flex;
   align-items: center;
   gap: 1rem;
   margin-bottom: 1rem;
+}
+
+.todotable {
+  margin-top: 20px;
+  width: 100%;
+  table-layout: fixed;
+  padding: 20px
+}
+
+.todotable td {
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: middle;
+  width: 100px;
+
+}
+
+.addtask button {
+  margin-top: 30px;
 }
 
 .checkbox {
@@ -233,53 +270,74 @@ margin: auto;
   text-decoration: line-through;
   color: #888;
 }
+
 /* ------------------------notes */
-.notesmaincontainer{
+.notesmaincontainer {
   margin: auto;
   max-width: 1000px;
   padding: 2rem;
 }
-.c1{
-justify-content: space-between;
-align-items: center;
-display: flex;
+
+.c1 {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
 }
-.notesinput textarea,.noteslist{
-  width: 500px;
-  height: 150px;
+
+.notesinput textarea,
+.noteslist {
+  width: 400px;
   border-radius: 2%;
   border: none;
   list-style: none;
   padding: 2rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  resize: none;
+  line-height: 1.5;
+  font-size: 1rem;
+  list-style: none;
 
 }
+
+.notesarea ul,li{
+list-style: none;
+margin: 20px 20px;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
 .button-column {
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
-  gap: 1rem; /* Adds spacing between buttons */
+  gap: 1rem;
+  /* Adds spacing between buttons */
 }
-.color-picker{
+
+.color-picker {
   position: absolute;
   top: 5px;
   left: 5px;
   width: 20px;
   height: 20px;
-  
-  
+
+
 }
-.deletenotebutton{
+
+.deletenotebutton {
   width: 60px;
   padding: 0rem;
   height: 20px;
   position: absolute;
   bottom: 10px;
-  right: 440px;
+  right: 30px;
 }
 
 
 /* ------------------TaskMaster */
-.taskmaster{
-    font-family: "Caveat", cursive;
+.taskmaster {
+  font-family: "Caveat", cursive;
   font-optical-sizing: auto;
   font-weight: 900;
   font-size: 50px;
