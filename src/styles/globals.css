@@ -94,7 +94,16 @@ a {
   background-color: #f9f9f9;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   flex-wrap: wrap;
+   transition: transform 0.3s ease;
+
 }
+
+.itemBlock:hover{
+  transform: scale(1.1);
+  background-color: #eae8e8;
+
+}
+
 
 .textContent {
   display: flex;
@@ -129,6 +138,7 @@ a {
   margin: 0 auto;
   padding: 2rem;
   max-width: 1000px;
+  
 }
 
 .clock {
@@ -138,7 +148,7 @@ a {
   gap: 10rem;
   font-size: 2rem;
   font-weight: bold;
-  margin: 2rem 0;
+  margin: 3rem 0;
   flex-wrap: wrap;
   
 }
@@ -157,18 +167,18 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .button-group {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .reset-button {
-  margin-top: 1rem;
+  margin-top: 3rem;
 }
 
 button {

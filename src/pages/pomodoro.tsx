@@ -2,13 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { PomodoroNavbar } from '../../components/Navbar';
 
 export default function Pomodoro() {
-  const [minutes, setMinutes] = useState(25);
-  const [seconds, setSeconds] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(25 * 60); // total seconds
   const [isRunning, setIsRunning] = useState(false);
+  const [workMode, setWorkMode] = useState(true);
 
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const alarmRef = useRef<HTMLAudioElement | null>(null);
-
 
   const playAlarm = () => {
     if (alarmRef.current) {
@@ -16,21 +15,15 @@ export default function Pomodoro() {
     }
   };
 
-
   useEffect(() => {
     if (isRunning) {
       timerRef.current = setInterval(() => {
-        setSeconds(prev => {
-          if (prev === 0) {
-            if (minutes === 0) {
-              clearInterval(timerRef.current!);
-              setIsRunning(false);
-              playAlarm();
-              return 0;
-            } else {
-              setMinutes(min => min - 1);
-              return 59;
-            }
+        setTimeLeft(prev => {
+          if (prev <= 1) {
+            clearInterval(timerRef.current!);
+            setIsRunning(false);
+            playAlarm();
+            return 0;
           }
           return prev - 1;
         });
@@ -40,19 +33,48 @@ export default function Pomodoro() {
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [isRunning, minutes]);
+  }, [isRunning]);
+
+  const resetTimer = (mode: "work" | "rest") => {
+    setIsRunning(false);
+    setWorkMode(mode === "work");
+    setTimeLeft(mode === "work" ? 25 * 60 : 5 * 60);
+  };
 
   const handleStart = () => setIsRunning(true);
   const handlePause = () => setIsRunning(false);
   const handleReset = () => {
-    setIsRunning(false);
-    setMinutes(25);
-    setSeconds(0);
+    resetTimer(workMode ? "work" : "rest");
   };
+
+  const minutes = Math.floor(timeLeft / 60);
+  const seconds = timeLeft % 60;
 
   return (
     <>
       <PomodoroNavbar />
+
+      <div className='radio' style={{ textAlign: 'center', marginTop: '1rem' }}>
+        <label>
+          <input
+            type="radio"
+            name="mode"
+            checked={workMode}
+            onChange={() => resetTimer("work")}
+            disabled={isRunning}
+          /> Work Mode
+        </label>
+        &nbsp;&nbsp;
+        <label>
+          <input
+            type="radio"
+            name="mode"
+            checked={!workMode}
+            onChange={() => resetTimer("rest")}
+            disabled={isRunning}
+          /> Rest Mode
+        </label>
+      </div>
 
       <div className='pomodorocontainer'>
         <h1>Pomodoro Timer</h1>
@@ -63,15 +85,15 @@ export default function Pomodoro() {
           <div>{seconds.toString().padStart(2, '0')}</div>
         </div>
 
-
-        <h4 style={{ textAlign: 'center' }}>Work Mode</h4>
+        <h4 style={{ textAlign: 'center' }}>
+          {workMode ? "🧠 Work Mode" : "☕ Rest Mode"}
+        </h4>
 
         <div className="button-group-wrapper">
           <div className="button-group">
             <button onClick={handleStart} disabled={isRunning}>Start</button>
             <button onClick={handlePause} disabled={!isRunning}>Pause</button>
           </div>
-
           <button className="reset-button" onClick={handleReset}>Reset</button>
         </div>
 

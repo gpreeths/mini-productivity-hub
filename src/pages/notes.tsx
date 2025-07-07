@@ -11,7 +11,7 @@ interface Note {
 
 function Notes() {
   const [notes, setNotes] = useState<Note[]>([]);
-  const notesRef = useRef<HTMLDivElement>(null); // 👈 ref to capture notes
+  const notesRef = useRef<HTMLDivElement>(null); // 
 
   useEffect(() => {
     const saved = localStorage.getItem('note');
