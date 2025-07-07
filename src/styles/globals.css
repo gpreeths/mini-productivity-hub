@@ -140,6 +140,7 @@ a {
   font-weight: bold;
   margin: 2rem 0;
   flex-wrap: wrap;
+  
 }
 
 .clock div {
@@ -147,8 +148,9 @@ a {
   padding: 1rem 1.5rem;
   background-color: #e2e2e2;
   border-radius: 8px;
-  width: 500px;
+  width: 100px;
   max-width: 100%;
+ 
 }
 
 .button-group-wrapper {
@@ -358,7 +360,7 @@ button:active {
   font-style: normal;
 }
 
-/* ------------------Responsive Media Queries */
+/* ------------------Responsive Media Queries
 @media (max-width: 768px) {
   .clock {
     gap: 2rem;
@@ -409,4 +411,4 @@ button:active {
   .noteslist {
     padding: 1rem;
   }
-}
+} */
